@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: searched
+source: https://shoptiques.com/
+host: https://shoptiques.com
+documents:
+  - path: /.well-known/openid-configuration        # OIDC discovery (Shopify Customer Account)
+    status: 200
+    file: shoptiques-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server   # RFC 8414 (identical payload to OIDC doc)
+    status: 200
+    file: shoptiques-oauth-authorization-server.json
+  - path: /.well-known/ucp                          # Universal Commerce Protocol merchant profile
+    status: 200
+    file: shoptiques-ucp.json
+  - path: /llms.txt                                 # agent instructions (mirrors /agents.md)
+    status: 200
+    file: ../llms/shoptiques-llms.txt
+  - path: /agents.md                                # canonical agent-facing store description
+    status: 200
+  - path: /.well-known/security.txt                 # RFC 9116
+    status: 404
+  - path: /.well-known/api-catalog                  # RFC 9727
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404

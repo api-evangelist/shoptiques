@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: https://shoptiques.com/.well-known/openid-configuration
+docs: https://shopify.dev/docs/api/customer
+notes: >-
+  Shoptiques runs on Shopify. Buyer/customer authentication is the Shopify
+  Customer Account API using OpenID Connect / OAuth 2.0 (authorization code + PKCE).
+  Agentic commerce (UCP) transactions require buyer approval; read-only storefront
+  browsing (product/collection JSON) requires no authentication.
+summary:
+  types: [oauth2, openIdConnect]
+  oauth2_flows: [authorizationCode]
+  pkce: S256
+schemes:
+  - name: ShopifyCustomerAccountOIDC
+    type: openIdConnect
+    openIdConnectUrl: https://shoptiques.com/.well-known/openid-configuration
+    issuer: https://shopify.com/authentication/70666223927
+    authorization_endpoint: https://account.shoptiques.com/authentication/oauth/authorize
+    token_endpoint: https://account.shoptiques.com/authentication/oauth/token
+    end_session_endpoint: https://account.shoptiques.com/authentication/logout
+    jwks_uri: https://account.shoptiques.com/authentication/.well-known/jwks.json
+    response_types_supported: [code]
+    grant_types_supported:
+      - authorization_code
+      - refresh_token
+      - "urn:ietf:params:oauth:grant-type:jwt-bearer"
+    code_challenge_methods_supported: [S256]
+    token_endpoint_auth_methods_supported: [client_secret_basic]
+    id_token_signing_alg_values_supported: [RS256]
+    sources: [well-known/shoptiques-openid-configuration.json]

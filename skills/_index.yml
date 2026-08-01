@@ -1,0 +1,8 @@
+generated: '2026-07-21'
+method: generated
+source: https://shoptiques.com/llms.txt
+skills:
+  - file: shoptiques-agentic-checkout.md
+    name: Shop and check out on Shoptiques (buyer-approved)
+    api: mcp/shoptiques-mcp.yml
+    operations: [search_catalog, create_cart, create_checkout, update_checkout, complete_checkout]

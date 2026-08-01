@@ -1,8 +1,14 @@
 aid: shoptiques
 name: Shoptiques
-description: Shoptiques is a company surfaced as a portfolio company of a16z, y-combinator and added to
-  the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment
-  pipeline.
+description: >-
+  Shoptiques is an online marketplace that brings thousands of independently owned local
+  boutiques online, letting shoppers discover unique, one-of-a-kind fashion and home decor
+  from over 5,000 stores. Founded in 2012 by Olga Vidisheva, the business rebranded its
+  merchant/POS arm as Material in 2023 while continuing to operate the Shoptiques consumer
+  marketplace. The storefront at shoptiques.com now runs on Shopify and exposes a modern
+  agent-facing commerce surface: a published llms.txt / agents.md, Shopify Customer Account
+  OpenID Connect + OAuth 2.0 authentication, and a Universal Commerce Protocol (UCP) MCP
+  endpoint for buyer-approved, agent-driven shopping and checkout.
 url: https://raw.githubusercontent.com/api-evangelist/shoptiques/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,14 +17,83 @@ x-backed-by:
 - y-combinator
 x-tier: stub
 x-tier-reason: portfolio-lead
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://shoptiques.com/cdn/shop/files/logo.png
 tags:
 - Company
-apis: []
+- E-Commerce
+- Retail
+- Marketplace
+- Boutiques
+- Fashion
+- Agentic Commerce
+- Shopify
+- MCP
+- UCP
+apis:
+- name: Shoptiques Agentic Commerce (UCP)
+  description: >-
+    Shopify-native Universal Commerce Protocol surface for the Shoptiques storefront —
+    agent-driven catalog search, cart, checkout and fulfillment over a published MCP
+    endpoint, with buyer-approved payment.
+  humanURL: https://shoptiques.com/llms.txt
+  baseURL: https://shoptiques.com
+  tags:
+  - Agentic Commerce
+  - UCP
+  - MCP
+  - E-Commerce
+  properties:
+  - type: MCPServer
+    url: mcp/shoptiques-mcp.yml
+  - type: Authentication
+    url: authentication/shoptiques-authentication.yml
+  - type: OAuthScopes
+    url: scopes/shoptiques-scopes.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/shoptiques-domain-security.yml
+- type: Website
+  url: https://shoptiques.com
+- type: LLMsTxt
+  url: llms/shoptiques-llms.txt
+- type: WellKnown
+  url: well-known/shoptiques-well-known.yml
+- type: MCPServer
+  url: mcp/shoptiques-mcp.yml
+- type: Authentication
+  url: authentication/shoptiques-authentication.yml
+- type: OAuthScopes
+  url: scopes/shoptiques-scopes.yml
+- type: Conformance
+  url: conformance/shoptiques-conformance.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: PrivacyPolicy
+  url: https://shoptiques.com/policies/privacy-policy
+- type: TermsOfService
+  url: https://shoptiques.com/policies/terms-of-service

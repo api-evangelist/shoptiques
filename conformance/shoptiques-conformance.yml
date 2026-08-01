@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: searched
+source: https://shoptiques.com/.well-known/openid-configuration
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      /.well-known/oauth-authorization-server (RFC 8414) published with authorization_code
+      + refresh_token grants and PKCE (S256).
+  - id: oidc
+    conforms: true
+    evidence: >-
+      /.well-known/openid-configuration published with RS256 id_token signing, jwks_uri,
+      and standard claims (sub, iss, aud, email).
+  - id: rfc8414-oauth-authorization-server-metadata
+    conforms: true
+    evidence: /.well-known/oauth-authorization-server returns 200.
+  - id: pkce
+    conforms: true
+    evidence: code_challenge_methods_supported includes S256.
+  - id: ucp-2026-04-08
+    conforms: true
+    evidence: >-
+      /.well-known/ucp advertises Universal Commerce Protocol 2026-04-08 (and 2026-01-23)
+      with mcp + embedded transports and shopping capabilities.
+  - id: mcp
+    conforms: true
+    evidence: Published JSON-RPC MCP endpoint at /api/ucp/mcp (UCP shopping service).
+  - id: rfc9116-security-txt
+    conforms: false
+    evidence: /.well-known/security.txt returns 404.
