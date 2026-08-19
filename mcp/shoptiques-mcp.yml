@@ -2,18 +2,18 @@ generated: '2026-07-21'
 method: searched
 status: published
 source: https://shoptiques.com/.well-known/ucp
-notes: >-
-  Shoptiques exposes a published, hosted MCP endpoint as part of its Shopify-native
-  Universal Commerce Protocol (UCP) implementation for agent-driven commerce. The
-  endpoint speaks JSON-RPC over HTTP; live `tools/list` requires a valid agent profile
-  URI (UCP agent handshake), so the tool set below is transcribed from the store's
-  published /llms.txt agent flow and the UCP shopping capabilities advertised in
-  /.well-known/ucp — not invented. Checkout completion always requires buyer approval.
+notes: Shoptiques exposes a published, hosted MCP endpoint as part of its Shopify-native Universal Commerce
+  Protocol (UCP) implementation for agent-driven commerce. The endpoint speaks JSON-RPC over HTTP; live
+  `tools/list` requires a valid agent profile URI (UCP agent handshake), so the tool set below is transcribed
+  from the store's published /llms.txt agent flow and the UCP shopping capabilities advertised in /.well-known/ucp
+  — not invented. Checkout completion always requires buyer approval.
 server:
   name: shoptiques-ucp
   protocol: UCP
-  ucp_version: "2026-04-08"
-  supported_versions: ["2026-04-08", "2026-01-23"]
+  ucp_version: '2026-04-08'
+  supported_versions:
+  - '2026-04-08'
+  - '2026-01-23'
   transport: http
   endpoint: https://shoptiques.com/api/ucp/mcp
   canonical_endpoint: https://shoptiques2023.myshopify.com/api/ucp/mcp
@@ -21,31 +21,39 @@ server:
   schema: https://ucp.dev/2026-04-08/services/shopping/mcp.openrpc.json
   auth: buyer-approved (Shopify Customer Account; customer-account-mcp-api:full scope)
 capabilities:
-  - dev.ucp.shopping.catalog.search
-  - dev.ucp.shopping.catalog.lookup
-  - dev.ucp.shopping.cart
-  - dev.ucp.shopping.checkout
-  - dev.ucp.shopping.fulfillment
-  - dev.ucp.shopping.discount
-  - dev.ucp.shopping.order
-  - dev.shopify.catalog
+- dev.ucp.shopping.catalog.search
+- dev.ucp.shopping.catalog.lookup
+- dev.ucp.shopping.cart
+- dev.ucp.shopping.checkout
+- dev.ucp.shopping.fulfillment
+- dev.ucp.shopping.discount
+- dev.ucp.shopping.order
+- dev.shopify.catalog
 payment_handlers:
-  - com.google.pay
-  - dev.shopify.card
-  - dev.shopify.shop_pay
+- com.google.pay
+- dev.shopify.card
+- dev.shopify.shop_pay
 tools:
-  - name: search_catalog
-    description: Find products in the store catalog matching a buyer's intent.
-    capability: dev.ucp.shopping.catalog.search
-  - name: create_cart
-    description: Create a cart and add desired items.
-    capability: dev.ucp.shopping.cart
-  - name: create_checkout
-    description: Start the purchase flow from a cart.
-    capability: dev.ucp.shopping.checkout
-  - name: update_checkout
-    description: Set shipping address and method (fulfillment) on a checkout.
-    capability: dev.ucp.shopping.fulfillment
-  - name: complete_checkout
-    description: Finalize the purchase. Requires explicit buyer payment approval.
-    capability: dev.ucp.shopping.checkout
+- name: search_catalog
+  description: Find products in the store catalog matching a buyer's intent.
+  capability: dev.ucp.shopping.catalog.search
+- name: create_cart
+  description: Create a cart and add desired items.
+  capability: dev.ucp.shopping.cart
+- name: create_checkout
+  description: Start the purchase flow from a cart.
+  capability: dev.ucp.shopping.checkout
+- name: update_checkout
+  description: Set shipping address and method (fulfillment) on a checkout.
+  capability: dev.ucp.shopping.fulfillment
+- name: complete_checkout
+  description: Finalize the purchase. Requires explicit buyer payment approval.
+  capability: dev.ucp.shopping.checkout
+deployment:
+  mode: remote
+  endpoint: https://shoptiques.com/api/ucp/mcp
+  verified: probed
+  probe: live
+  tools: 13
+  checked: '2026-08-12'
+  source: catalog MCP census
