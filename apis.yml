@@ -59,6 +59,17 @@ tags:
 - Agentic Commerce
 - Shopify
 - MCP
+- Universal Commerce Protocol
+tags_raw:
+- Company
+- E-Commerce
+- Retail
+- Marketplace
+- Boutiques
+- Fashion
+- Agentic Commerce
+- Shopify
+- MCP
 - UCP
 apis:
 - name: Shoptiques Agentic Commerce (UCP)
@@ -69,6 +80,11 @@ apis:
   humanURL: https://shoptiques.com/llms.txt
   baseURL: https://shoptiques.com
   tags:
+  - Agentic Commerce
+  - Universal Commerce Protocol
+  - MCP
+  - E-Commerce
+  tags_raw:
   - Agentic Commerce
   - UCP
   - MCP
