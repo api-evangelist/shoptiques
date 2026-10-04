@@ -78,7 +78,6 @@ apis:
     agent-driven catalog search, cart, checkout and fulfillment over a published MCP
     endpoint, with buyer-approved payment.
   humanURL: https://shoptiques.com/llms.txt
-  baseURL: https://shoptiques.com
   tags:
   - Agentic Commerce
   - Universal Commerce Protocol
@@ -96,6 +95,9 @@ apis:
     url: authentication/shoptiques-authentication.yml
   - type: OAuthScopes
     url: scopes/shoptiques-scopes.yml
+  x-surface: platform-generated
+  x-platform: shopify
+  x-platform-surface: ucp
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
