@@ -1,0 +1,16 @@
+generated: '2026-10-12'
+method: none
+source:
+- https://zapier.com/apps/shoptiques/integrations
+- https://n8n.io/integrations/shoptiques/
+- https://composio.dev/toolkits/shoptiques
+- https://monid.ai/tools/shoptiques
+checked:
+- https://composio.dev/toolkits/shoptiques
+- https://monid.ai/tools/shoptiques
+- https://n8n.io/integrations/shoptiques/
+- https://zapier.com/apps/shoptiques/integrations
+summary: null
+marketplace_apps: []
+edges: []
+templates: []
